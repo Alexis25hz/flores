@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi amorcita linda</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #fffefa;
+    overflow-x: hidden;
+}
+
+/* =========================
+   PANTALLA INICIAL
+========================= */
+
+#inicio {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #fffdf5
+    );
+
+    transition: opacity 1s ease;
+}
+
+.sobre {
+    font-size: 85px;
+    animation: latido 1.5s infinite;
+}
+
+#inicio h1 {
+    margin: 20px 0 10px;
+    color: #b57a00;
+    font-size: 42px;
+}
+
+#inicio p {
+    color: #665000;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+
+    padding: 16px 30px;
+
+    background: #f5c400;
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 15px #0002;
+
+    transition: .3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    background: #e5ad00;
+}
+
+
+/* =========================
+   PÁGINA
+========================= */
+
+#pagina {
+    display: none;
+
+    min-height: 100vh;
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px 10px;
+
+    background: #fffefa;
+}
+
+.contenido {
+    width: 100%;
+    max-width: 750px;
+
+    text-align: center;
+}
+
+.contenido h1 {
+    color: #b57a00;
+    font-size: 40px;
+    margin-bottom: 8px;
+}
+
+.frase {
+    color: #665000;
+    font-size: 18px;
+}
+
+
+/* =========================
+   FLORES DE ATRÁS
+========================= */
+
+.fondo-flores {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.fondo-flores span {
+    position: absolute;
+
+    top: -50px;
+
+    font-size: 28px;
+
+    animation: caer 8s linear infinite;
+}
+
+.fondo-flores span:nth-child(1) {
+    left: 8%;
+}
+
+.fondo-flores span:nth-child(2) {
+    left: 23%;
+    animation-delay: 2s;
+}
+
+.fondo-flores span:nth-child(3) {
+    left: 40%;
+    animation-delay: 4s;
+}
+
+.fondo-flores span:nth-child(4) {
+    left: 58%;
+    animation-delay: 1s;
+}
+
+.fondo-flores span:nth-child(5) {
+    left: 75%;
+    animation-delay: 3s;
+}
+
+.fondo-flores span:nth-child(6) {
+    left: 92%;
+    animation-delay: 5s;
+}
+
+
+/* =========================
+   RAMO
+========================= */
+
+.ramo {
+    position: relative;
+
+    width: 520px;
+    height: 500px;
+
+    max-width: 100%;
+
+    margin: 5px auto 0;
+
+    z-index: 5;
+}
+
+
+/* =========================
+   TALLOS
+========================= */
+
+.tallo {
+    position: absolute;
+
+    width: 7px;
+    height: 250px;
+
+    left: 50%;
+    top: 170px;
+
+    background: #4b9139;
+
+    border-radius: 10px;
+
+    transform-origin: bottom;
+
+    z-index: 2;
+}
+
+.t1 {
+    transform: rotate(-35deg);
+}
+
+.t2 {
+    transform: rotate(-18deg);
+}
+
+.t3 {
+    transform: rotate(0deg);
+}
+
+.t4 {
+    transform: rotate(18deg);
+}
+
+.t5 {
+    transform: rotate(35deg);
+}
+
+
+/* =========================
+   GIRASOLES
+========================= */
+
+.girasol {
+    position: absolute;
+
+    width: 125px;
+    height: 125px;
+
+    z-index: 8;
+
+    animation: aparecer 1.3s ease;
+}
+
+.girasol1 {
+    left: 65px;
+    top: 65px;
+}
+
+.girasol2 {
+    right: 65px;
+    top: 70px;
+}
+
+.girasol3 {
+    left: 197px;
+    top: 25px;
+}
+
+.petalo {
+    position: absolute;
+
+    width: 40px;
+    height: 65px;
+
+    left: 42px;
+    top: 29px;
+
+    background: #ffd21f;
+
+    border-radius: 50%;
+
+    transform-origin: 50% 100%;
+}
+
+.p1 {
+    transform: rotate(0deg) translateY(-25px);
+}
+
+.p2 {
+    transform: rotate(60deg) translateY(-25px);
+}
+
+.p3 {
+    transform: rotate(120deg) translateY(-25px);
+}
+
+.p4 {
+    transform: rotate(180deg) translateY(-25px);
+}
+
+.p5 {
+    transform: rotate(240deg) translateY(-25px);
+}
+
+.p6 {
+    transform: rotate(300deg) translateY(-25px);
+}
+
+.centro {
+    position: absolute;
+
+    width: 50px;
+    height: 50px;
+
+    left: 37px;
+    top: 37px;
+
+    border-radius: 50%;
+
+    background: #704000;
+
+    z-index: 5;
+}
+
+
+/* =========================
+   FLORES AMARILLAS PEQUEÑAS
+========================= */
+
+.flor {
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    z-index: 9;
+}
+
+.flor1 {
+    left: 130px;
+    top: 145px;
+}
+
+.flor2 {
+    right: 125px;
+    top: 150px;
+}
+
+.flor3 {
+    left: 215px;
+    top: 115px;
+}
+
+.flor .petalo2 {
+    position: absolute;
+
+    width: 30px;
+    height: 50px;
+
+    left: 30px;
+    top: 20px;
+
+    background: #ffe04a;
+
+    border-radius: 50%;
+
+    transform-origin: 50% 100%;
+}
+
+.flor .centro2 {
+    position: absolute;
+
+    width: 32px;
+    height: 32px;
+
+    left: 29px;
+    top: 29px;
+
+    border-radius: 50%;
+
+    background: #8a5100;
+
+    z-index: 3;
+}
+
+.flor .a {
+    transform: rotate(0deg) translateY(-17px);
+}
+
+.flor .b {
+    transform: rotate(90deg) translateY(-17px);
+}
+
+.flor .c {
+    transform: rotate(180deg) translateY(-17px);
+}
+
+.flor .d {
+    transform: rotate(270deg) translateY(-17px);
+}
+
+
+/* =========================
+   HOJAS
+========================= */
+
+.hoja {
+    position: absolute;
+
+    width: 75px;
+    height: 35px;
+
+    background: #4b9139;
+
+    border-radius: 100% 0;
+
+    z-index: 4;
+}
+
+.hoja1 {
+    left: 75px;
+    top: 240px;
+
+    transform: rotate(-30deg);
+}
+
+.hoja2 {
+    right: 70px;
+    top: 245px;
+
+    transform: rotate(30deg);
+}
+
+.hoja3 {
+    left: 220px;
+    top: 245px;
+
+    transform: rotate(160deg);
+}
+
+
+/* =========================
+   ENVOLTURA
+========================= */
+
+.papel {
+    position: absolute;
+
+    width: 370px;
+    height: 200px;
+
+    left: 75px;
+    top: 280px;
+
+    background: linear-gradient(
+        135deg,
+        #fff8df,
+        #dfbd72
+    );
+
+    clip-path: polygon(
+        5% 0,
+        95% 0,
+        100% 100%,
+        50% 75%,
+        0 100%
+    );
+
+    z-index: 15;
+
+    box-shadow: 0 8px 15px #0002;
+}
+
+.lazo {
+    position: absolute;
+
+    left: 50%;
+    bottom: 5px;
+
+    transform: translateX(-50%);
+
+    font-size: 55px;
+}
+
+
+/* =========================
+   DEDICATORIA
+========================= */
+
+.dedicatoria {
+    position: relative;
+    z-index: 20;
+
+    width: 90%;
+    max-width: 600px;
+
+    margin: -25px auto 20px;
+
+    padding: 22px;
+
+    background: white;
+
+    border: 1px solid #f1dfad;
+
+    border-radius: 22px;
+
+    box-shadow: 0 8px 25px #0001;
+}
+
+.dedicatoria p {
+    color: #665000;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    margin: 8px;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes latido {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes caer {
+
+    from {
+        top: -50px;
+        transform: rotate(0deg);
+    }
+
+    to {
+        top: 110%;
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    #inicio h1 {
+        font-size: 30px;
+    }
+
+    .contenido h1 {
+        font-size: 28px;
+    }
+
+    .ramo {
+        transform: scale(.65);
+        transform-origin: top center;
+
+        height: 340px;
+
+        margin-bottom: -80px;
+    }
+
+    .dedicatoria {
+        margin-top: 0;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     INICIO
+========================= -->
+
+<section id="inicio">
+
+    <div class="sobre">
+        💌
+    </div>
+
+    <h1>
+        Tengo algo para ti
+    </h1>
+
+    <p>
+        te prepare una pequeña sorpresa 💛
+    </p>
+
+    <button onclick="abrirSorpresa()">
+        Abrir mi sorpresa 🌻
+    </button>
+
+</section>
+
+
+<!-- =========================
+     PÁGINA PRINCIPAL
+========================= -->
+
+<section id="pagina">
+
+    <!-- FLORES QUE ESTÁN ATRÁS -->
+    <div class="fondo-flores">
+
+        <span>🌼</span>
+        <span>🌻</span>
+        <span>🌼</span>
+        <span>🌻</span>
+        <span>🌼</span>
+        <span>🌻</span>
+
+    </div>
+
+
+    <div class="contenido">
+
+        <h1>
+            🌻 Para ti, mi corazoncito 🌻
+        </h1>
+
+        <p class="frase">
+            Porque te mereces todas las flores bonitas del mundo 💛
+        </p>
+
+
+        <!-- RAMO -->
+
+        <div class="ramo">
+
+
+            <!-- TALLOS -->
+
+            <div class="tallo t1"></div>
+            <div class="tallo t2"></div>
+            <div class="tallo t3"></div>
+            <div class="tallo t4"></div>
+            <div class="tallo t5"></div>
+
+
+            <!-- GIRASOL 1 -->
+
+            <div class="girasol girasol1">
+
+                <div class="petalo p1"></div>
+                <div class="petalo p2"></div>
+                <div class="petalo p3"></div>
+                <div class="petalo p4"></div>
+                <div class="petalo p5"></div>
+                <div class="petalo p6"></div>
+
+                <div class="centro"></div>
+
+            </div>
+
+
+            <!-- GIRASOL 2 -->
+
+            <div class="girasol girasol2">
+
+                <div class="petalo p1"></div>
+                <div class="petalo p2"></div>
+                <div class="petalo p3"></div>
+                <div class="petalo p4"></div>
+                <div class="petalo p5"></div>
+                <div class="petalo p6"></div>
+
+                <div class="centro"></div>
+
+            </div>
+
+
+            <!-- GIRASOL 3 -->
+
+            <div class="girasol girasol3">
+
+                <div class="petalo p1"></div>
+                <div class="petalo p2"></div>
+                <div class="petalo p3"></div>
+                <div class="petalo p4"></div>
+                <div class="petalo p5"></div>
+                <div class="petalo p6"></div>
+
+                <div class="centro"></div>
+
+            </div>
+
+
+            <!-- FLORES AMARILLAS SIN EMOJIS -->
+
+            <div class="flor flor1">
+
+                <div class="petalo2 a"></div>
+                <div class="petalo2 b"></div>
+                <div class="petalo2 c"></div>
+                <div class="petalo2 d"></div>
+
+                <div class="centro2"></div>
+
+            </div>
+
+
+            <div class="flor flor2">
+
+                <div class="petalo2 a"></div>
+                <div class="petalo2 b"></div>
+                <div class="petalo2 c"></div>
+                <div class="petalo2 d"></div>
+
+                <div class="centro2"></div>
+
+            </div>
+
+
+            <div class="flor flor3">
+
+                <div class="petalo2 a"></div>
+                <div class="petalo2 b"></div>
+                <div class="petalo2 c"></div>
+                <div class="petalo2 d"></div>
+
+                <div class="centro2"></div>
+
+            </div>
+
+
+            <!-- HOJAS -->
+
+            <div class="hoja hoja1"></div>
+            <div class="hoja hoja2"></div>
+            <div class="hoja hoja3"></div>
+
+
+            <!-- ENVOLTURA -->
+
+            <div class="papel">
+
+                <div class="lazo">
+                    🎀
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- DEDICATORIA -->
+
+        <div class="dedicatoria">
+
+            <p>
+                Hice este pequeño ramo para ti,
+                porque quería regalarte algo
+                que representara lo especial
+                que eres para mí. 💛
+            </p>
+
+            <p>
+                Gracias por estar en mi vida.
+            </p>
+
+            <p>
+                Te quiero muchísimo ❤️
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+function abrirSorpresa() {
+
+    const inicio = document.getElementById("inicio");
+    const pagina = document.getElementById("pagina");
+
+    inicio.style.opacity = "0";
+
+    setTimeout(function() {
+
+        inicio.style.display = "none";
+        pagina.style.display = "flex";
+
+    }, 1000);
+
+}
+
+</script>
+
+
+</body>
+</html>
