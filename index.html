@@ -602,6 +602,7 @@ button:hover {
     #pagina {
         padding: 20px 5px;
         align-items: flex-start;
+        overflow-x: hidden;
     }
 
     .contenido {
@@ -621,16 +622,24 @@ button:hover {
     }
 
 
-    /* RAMO */
+    /* RAMO
+       IMPORTANTE:
+       mantenemos los 520px originales
+       para que flores y envoltorio
+       conserven sus posiciones */
 
     .ramo {
         width: 520px;
-        height: 380px;
+        max-width: none;
+        height: 500px;
 
-        transform: scale(.62);
+        position: relative;
+        left: 50%;
+
+        transform: translateX(-50%) scale(0.62);
         transform-origin: top center;
 
-        margin: 10px auto -70px;
+        margin: 10px 0 -80px;
     }
 
 
@@ -638,11 +647,8 @@ button:hover {
 
     .dedicatoria {
         width: 92%;
-
         margin: 0 auto 20px;
-
         padding: 18px 15px;
-
         border-radius: 18px;
     }
 
@@ -660,7 +666,6 @@ button:hover {
     }
 
 }
-
 </style>
 </head>
 
